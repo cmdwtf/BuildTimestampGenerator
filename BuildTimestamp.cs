@@ -50,7 +50,7 @@ namespace {nameof(cmdwtf)}
 		/// <summary>
 		/// The time this source was generated, as a <see cref=""DateTimeKind.Local""/> <see cref=""DateTime""/>.
 		/// </summary>
-		public static DateTime BuildTime {{ get; }} = new BuildTimeDto.LocalDateTime;
+		public static DateTime BuildTime {{ get; }} = BuildTimeDto.LocalDateTime;
 
 		/// <summary>
 		/// The time this source was generated as a Unix timestamp in UTC.
