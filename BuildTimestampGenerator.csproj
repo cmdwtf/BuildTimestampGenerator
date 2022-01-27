@@ -63,4 +63,13 @@
     </Content>
   </ItemGroup>
 
+  <!-- workaround for sourcelink issue: https://github.com/dotnet/sourcelink/issues/572 -->
+  <PropertyGroup>
+    <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+  </ItemGroup>
+  <!-- end workaround for sourcelink issue -->
+
 </Project>
