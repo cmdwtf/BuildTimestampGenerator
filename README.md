@@ -10,12 +10,14 @@ This is a small Roslyn source generator that outputs a class, `BuildTimestamp`, 
 
 ## ❓Usage
 
-- Reference the source generator (sometimes called 'analyzer') in your `.csproj` 
+- Reference the source generator (sometimes called 'analyzer') in your `.csproj`, to [install it from NuGet](https://www.nuget.org/packages/cmdwtf.BuildTimestampGenerator):
 ```xml
   <ItemGroup>
     <PackageReference Include="cmdwtf.BuildTimestampGenerator" Version="*" PrivateAssets="all" />
   </ItemGroup>
 ```
+  - If you want to refrence the project on disk rather than the NuGet package,
+         see an example reference [here](https://docs.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/source-generators-overview#code-try-4).
 - Build once so packages are restored and source can be generated.
 - Use the properties of the class `cmdwtf.BuildTimestamp` to determine your compile time!
 
