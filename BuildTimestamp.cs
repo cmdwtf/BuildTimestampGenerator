@@ -10,7 +10,8 @@ namespace cmdwtf.BuildTimestampGenerator
 		public void Execute(GeneratorExecutionContext context)
 		{
 
-			DateTime executeTime = DateTime.UtcNow;
+			DateTime executeTimeUtc = DateTime.UtcNow;
+			DateTimeOffset executeTimeUtcOffset = new(executeTimeUtc);
 
 			string source = $@"// Auto-generated code
 using System;
@@ -27,14 +28,14 @@ namespace {nameof(cmdwtf)}
 		/// The timestamp (in Windows FILETIME, the number of 100ns intervals since
 		/// 12:00 midnight, January 1, 1601 C.E UTC) from when this source was generated.
 		/// </summary>
-		public const long FileTime = {executeTime.ToFileTime()};
+		public const long FileTime = {executeTimeUtc.ToFileTime()};
 
 
 		/// <summary>
 		/// The timestamp (in ticks elapsed since the beginning of the 21st century)
 		/// from when this source was generated.
 		/// </summary>
-		public const long Ticks = {executeTime.Ticks};
+		public const long Ticks = {executeTimeUtc.Ticks};
 
 		/// <summary>
 		/// The time this source was generated, as a <see cref=""DateTimeKind.Utc""/> <see cref=""DateTime""/>.
@@ -44,27 +45,32 @@ namespace {nameof(cmdwtf)}
 		/// <summary>
 		/// The time this source was generated, as a <see cref=""DateTimeOffset""/>.
 		/// </summary>
-		public static DateTimeOffset BuildTime {{ get; }} = new DateTimeOffset(BuildTimeUtc);
+		public static DateTimeOffset BuildTimeDto {{ get; }} = new DateTimeOffset(BuildTimeUtc);
 
 		/// <summary>
-		/// The time this source was generated as a Unix timestamp in local time.
+		/// The time this source was generated, as a <see cref=""DateTimeKind.Local""/> <see cref=""DateTime""/>.
 		/// </summary>
-		public static long UnixTime {{ get; }} = BuildTime.ToUnixTimeSeconds();
+		public static DateTime BuildTime {{ get; }} = new BuildTimeDto.LocalDateTime;
 
 		/// <summary>
 		/// The time this source was generated as a Unix timestamp in UTC.
 		/// </summary>
-		public static long UnixTimeUtc {{ get; }} = BuildTime.ToUniversalTime().ToUnixTimeSeconds();
+		public const long UnixTimeUtc = {executeTimeUtcOffset.ToUnixTimeSeconds()};
+
+		/// <summary>
+		/// The time this source was generated as a Unix timestamp in local time.
+		/// </summary>
+		public static long UnixTime {{ get; }} = BuildTimeDto.ToUnixTimeSeconds();
+		/// <summary>
+		/// The time this source was generated as a Unix millisecond timestamp in UTC.
+		/// </summary>
+		public const long UnixTimeMillisecondsUtc = {executeTimeUtcOffset.ToUnixTimeMilliseconds()};
 
 		/// <summary>
 		/// The time this source was generated as a Unix millisecond timestamp in local time.
 		/// </summary>
-		public static long UnixTimeMilliseconds {{ get; }} = BuildTime.ToUnixTimeMilliseconds();
+		public static long UnixTimeMilliseconds {{ get; }}= BuildTimeDto.ToUnixTimeMilliseconds();
 
-		/// <summary>
-		/// The time this source was generated as a Unix millisecond timestamp in UTC.
-		/// </summary>
-		public static long UnixTimeMillisecondsUtc {{ get; }} = BuildTime.ToUniversalTime().ToUnixTimeMilliseconds();
 	}}
 }}
 ";
