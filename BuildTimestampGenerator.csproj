@@ -14,9 +14,8 @@
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <NeutralLanguage>en</NeutralLanguage>
 
-    <VersionPrefix>0.0.2</VersionPrefix>
-    <!--<VersionSuffix>$(VersionSuffix)</VersionSuffix>-->
-    <VersionSuffix>beta</VersionSuffix>
+    <VersionPrefix>0.0.3-beta</VersionPrefix>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
 
     <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
     <Description>A small source generator that outputs a class, `BuildTimestamp`, that contains several variables that describe when the source generator was run (and thus when your project was built.)</Description>
@@ -43,7 +42,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
-    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.0.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="3.9.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
