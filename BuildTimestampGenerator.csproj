@@ -14,7 +14,7 @@
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <NeutralLanguage>en</NeutralLanguage>
 
-    <VersionPrefix>0.0.1</VersionPrefix>
+    <VersionPrefix>0.0.2</VersionPrefix>
     <!--<VersionSuffix>$(VersionSuffix)</VersionSuffix>-->
     <VersionSuffix>beta</VersionSuffix>
 
@@ -61,6 +61,11 @@
     <Content Include="$(cd)\LICENSE; $(cd)\copyright; $(cd)\*.md" Visible="false">
       <PackagePath>.\</PackagePath>
     </Content>
+  </ItemGroup>
+
+  <!-- force the assembly into the proper path for analyzers -->
+  <ItemGroup>
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
   </ItemGroup>
 
   <!-- workaround for sourcelink issue: https://github.com/dotnet/sourcelink/issues/572 -->
