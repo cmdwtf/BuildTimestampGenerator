@@ -14,7 +14,7 @@
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <NeutralLanguage>en</NeutralLanguage>
 
-    <VersionPrefix>0.0.3-beta</VersionPrefix>
+    <VersionPrefix>0.0.4-beta</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
 
     <PackageReleaseNotes>Initial release.</PackageReleaseNotes>

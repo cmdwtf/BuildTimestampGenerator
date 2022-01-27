@@ -13,6 +13,8 @@ namespace cmdwtf.BuildTimestampGenerator
 			DateTime executeTime = DateTime.UtcNow;
 
 			string source = $@"// Auto-generated code
+using System;
+
 namespace {nameof(cmdwtf)}
 {{
 	internal static partial class {nameof(BuildTimestamp)}
