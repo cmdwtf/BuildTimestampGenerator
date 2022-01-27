@@ -1,3 +1,5 @@
+[![build status](https://img.shields.io/github/workflow/status/cmdwtf/BuildTimestampGenerator/.NET%20Build%20&%20NuGet%20Publish)](https://github.com/cmdwtf/BuildTimestampGenerator/actions/workflows/dotnet.yaml) [![nuget](https://img.shields.io/nuget/v/cmdwtf.BuildTimestampGenerator)](https://www.nuget.org/packages/cmdwtf.BuildTimestampGenerator) [![license: 0BSD](https://img.shields.io/badge/license-0BSD-green)](./LICENSE)
+
 ![icon](.meta/timestamp-icon.png#gh-dark-mode-only)
 ![icon](.meta/timestamp-icon-alt.png#gh-light-mode-only)
 
