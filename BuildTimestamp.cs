@@ -9,7 +9,6 @@ namespace cmdwtf.BuildTimestampGenerator
 	{
 		public void Execute(GeneratorExecutionContext context)
 		{
-
 			DateTime executeTimeUtc = DateTime.UtcNow;
 			DateTimeOffset executeTimeUtcOffset = new(executeTimeUtc);
 
@@ -18,7 +17,6 @@ using System;
 
 namespace {nameof(cmdwtf)}
 {{
-
 	/// <summary>
 	/// A static class representing when it was generated.
 	/// </summary>
@@ -26,10 +24,9 @@ namespace {nameof(cmdwtf)}
 	{{
 		/// <summary>
 		/// The timestamp (in Windows FILETIME, the number of 100ns intervals since
-		/// 12:00 midnight, January 1, 1601 C.E UTC) from when this source was generated.
+		/// 12:00 midnight, January 1, 1601 C.E. UTC) from when this source was generated.
 		/// </summary>
 		public const long FileTime = {executeTimeUtc.ToFileTime()};
-
 
 		/// <summary>
 		/// The timestamp (in ticks elapsed since the beginning of the 21st century)
@@ -61,6 +58,7 @@ namespace {nameof(cmdwtf)}
 		/// The time this source was generated as a Unix timestamp in local time.
 		/// </summary>
 		public static long UnixTime {{ get; }} = BuildTimeDto.ToUnixTimeSeconds();
+
 		/// <summary>
 		/// The time this source was generated as a Unix millisecond timestamp in UTC.
 		/// </summary>
@@ -69,8 +67,7 @@ namespace {nameof(cmdwtf)}
 		/// <summary>
 		/// The time this source was generated as a Unix millisecond timestamp in local time.
 		/// </summary>
-		public static long UnixTimeMilliseconds {{ get; }}= BuildTimeDto.ToUnixTimeMilliseconds();
-
+		public static long UnixTimeMilliseconds {{ get; }} = BuildTimeDto.ToUnixTimeMilliseconds();
 	}}
 }}
 ";
