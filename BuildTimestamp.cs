@@ -14,12 +14,14 @@ namespace cmdwtf.BuildTimestampGenerator
 
 			string source = $@"// Auto-generated code
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace {nameof(cmdwtf)}
 {{
 	/// <summary>
 	/// A static class representing when it was generated.
 	/// </summary>
+	[ExcludeFromCodeCoverage]
 	internal static class {nameof(BuildTimestamp)}
 	{{
 		/// <summary>
